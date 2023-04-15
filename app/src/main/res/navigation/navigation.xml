@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/todoListFragment">
+    <fragment
+        android:id="@+id/todoListFragment"
+        android:name="com.example.todo.app.ui.list.TodoListFragment"
+        android:label="fragment_todo_list"
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_todoListFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
+        <action
+            android:id="@+id/action_todoListFragment_to_userAddFragment2"
+            app:destination="@id/userAddFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.example.todo.app.ui.details.UserDetailsFragment"
+        android:label="fragment_user_details"
+        tools:layout="@layout/fragment_user_details" >
+        <action
+            android:id="@+id/action_userDetailsFragment_to_postListFragment"
+            app:destination="@id/postListFragment" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_userDetailsFragment_to_userEditFragment"
+            app:destination="@id/userEditFragment" />
+        <action
+            android:id="@+id/action_userDetailsFragment_to_todoListFragment"
+            app:destination="@id/todoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userAddFragment2"
+        android:name="com.example.todo.app.ui.add.UserAddFragment"
+        android:label="UserAddFragment" />
+    <fragment
+        android:id="@+id/userEditFragment"
+        android:name="com.example.todo.app.ui.edit.UserEditFragment"
+        android:label="fragment_user_edit"
+        tools:layout="@layout/fragment_user_edit">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/postListFragment"
+        android:name="com.example.todo.app.ui.post.postLIst.postListFragment"
+        android:label="fragment_post_list"
+        tools:layout="@layout/fragment_post_list" >
+        <action
+            android:id="@+id/action_postListFragment_to_postAddFragment"
+            app:destination="@id/postAddFragment" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_postListFragment_to_detailsPostFragment2"
+            app:destination="@id/detailsPostFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/postAddFragment"
+        android:name="com.example.todo.app.ui.post.postAdd.postAddFragment"
+        android:label="fragment_post_add"
+        tools:layout="@layout/fragment_post_add" >
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentListFragment"
+        android:name="com.example.todo.app.ui.comment.commentList.commentListFragment"
+        android:label="fragment_comment_list"
+        tools:layout="@layout/fragment_comment_list" >
+        <action
+            android:id="@+id/action_commentListFragment_to_commentAddFragment"
+            app:destination="@id/commentAddFragment" />
+        <action
+            android:id="@+id/action_commentListFragment_to_commentDetailsFragment"
+            app:destination="@id/commentDetailsFragment" />
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentAddFragment"
+        android:name="com.example.todo.app.ui.comment.commentAdd.commentAddFragment"
+        android:label="fragment_comment_add"
+        tools:layout="@layout/fragment_comment_add" >
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentDetailsFragment"
+        android:name="com.example.todo.app.ui.comment.commentDetails.commentDetailsFragment"
+        android:label="fragment_comment_details"
+        tools:layout="@layout/fragment_comment_details" >
+        <action
+            android:id="@+id/action_commentDetailsFragment_to_commentEditFragment"
+            app:destination="@id/commentEditFragment" />
+        <argument
+            android:name="commentId"
+            app:argType="integer" />
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentEditFragment"
+        android:name="com.example.todo.app.ui.comment.commentEdit.commentEditFragment"
+        android:label="fragment_comment_edit"
+        tools:layout="@layout/fragment_comment_edit" >
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+        <argument
+            android:name="commentId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsPostFragment2"
+        android:name="com.example.todo.app.ui.post.postDetails.detailsPostFragment"
+        android:label="fragment_details_post"
+        tools:layout="@layout/fragment_post_details" >
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailsPostFragment2_to_commentListFragment"
+            app:destination="@id/commentListFragment" />
+        <action
+            android:id="@+id/action_detailsPostFragment2_to_editPostFragment2"
+            app:destination="@id/editPostFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPostFragment2"
+        android:name="com.example.todo.app.ui.post.postEdit.editPostFragment"
+        android:label="fragment_details_edit"
+        tools:layout="@layout/fragment_post_edit">
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
